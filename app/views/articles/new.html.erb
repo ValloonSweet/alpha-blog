@@ -1,4 +1,12 @@
-<h1>Create new article<h1>
+<h1>Create new article</h1>
+
+<% if @article.errors.any? %>
+    <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+<% end %>
 
 <%= form_for(Article.new) do |f| %>
     <p>
